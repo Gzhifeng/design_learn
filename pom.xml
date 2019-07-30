@@ -12,7 +12,6 @@
 		<module>design_common</module>
 		<module>design_profiles</module>
 		<module>design_service</module>
-		<module>design_config</module>
 		<module>design_chain</module>
 	</modules>
 
@@ -34,10 +33,18 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-web</artifactId>
-				<version>5.0.7.RELEASE</version>
-				<scope>compile</scope>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-releasetrain</artifactId>
+				<version>Ingalls-SR7</version>
+				<type>pom</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>1.5.8.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -19,6 +19,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<!-- 使用IDEA开发工具时，需要加上该resources配置，解决webapp/资源目录无效的问题 -->

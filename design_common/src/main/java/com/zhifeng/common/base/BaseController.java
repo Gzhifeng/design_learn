@@ -1,4 +1,4 @@
-package com.zhifeng.base;
+package com.zhifeng.common.base;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
