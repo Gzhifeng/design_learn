@@ -1,2 +1,10 @@
 server:
-  port: 8080
+  port: 8081
+  tomcat:
+      max-threads: 3000
+      uri-encoding: UTF-8
+spring:
+  profiles:
+    include:
+      - jdbc
+

@@ -1,5 +1,5 @@
 mybatis:
-    mapperLocations: classpath*:com/zhifeng/**/*.xml
-    typeAliasesPackage: com.zhifeng.**.model
+    mapperLocations: classpath*:com/zhifeng/*.xml
+    typeAliasesPackage: com.zhifeng.model
     configuration:
         call-setters-on-nulls: true
