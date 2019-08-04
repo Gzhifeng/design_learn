@@ -2,7 +2,6 @@ package com.zhifeng;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -14,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages ={"com.zhifeng.common"})
-@MapperScan("com.zhifeng")
+@MapperScan(basePackages ={"com.zhifeng"})
 public class ChainApplication {
 
     public static void main(String[] args) {

@@ -10,7 +10,6 @@
 	<version>1.0-SNAPSHOT</version>
 	<modules>
 		<module>design_common</module>
-		<module>design_profiles</module>
 		<module>design_service</module>
 		<module>design_chain</module>
 	</modules>
@@ -18,7 +17,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
+		<version>1.5.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -43,9 +42,8 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>2.0.0.RELEASE</version>
+				<version>1.5.3.RELEASE</version>
 				<type>pom</type>
-				<scope>provided</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
