@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @Date 2019/7/30 0030
  */
 @SpringBootApplication
-@ComponentScan(basePackages ={"com.zhifeng.common"})
+@ComponentScan(basePackages ={"com.zhifeng.common", "com.zhifeng"})
 @MapperScan(basePackages ={"com.zhifeng"})
 public class ChainApplication {
 
