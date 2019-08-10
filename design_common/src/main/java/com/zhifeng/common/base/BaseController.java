@@ -12,9 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author Liuk
- * @date 2017-06-27 14:54
- * @TODO
+ * @author
+ * @date
  */
 @Controller
 public abstract class BaseController {
@@ -24,7 +23,9 @@ public abstract class BaseController {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true)); // true:允许输入空值，false:不能为空值
+
+        // true:允许输入空值，false:不能为空值
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 
         // String类型转换，将所有传递进来的String进行HTML编码，防止XSS攻击
         binder.registerCustomEditor(String.class, new PropertyEditorSupport() {

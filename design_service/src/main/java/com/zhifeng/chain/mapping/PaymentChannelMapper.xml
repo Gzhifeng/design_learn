@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhifeng.chain.mapper.PaymentChannelMapper" >
+  <resultMap id="BaseResultMap" type="com.zhifeng.chain.model.PaymentChannel" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="channel_name" property="channelName" jdbcType="VARCHAR" />
+    <result column="channel_id" property="channelId" jdbcType="VARCHAR" />
+    <result column="strategy_bean_id" property="strategyBeanId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, channel_name, channel_id, strategy_bean_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from payment_channel
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from payment_channel
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+    insert into payment_channel (id, channel_name, channel_id,
+      strategy_bean_id)
+    values (#{id,jdbcType=BIGINT}, #{channelName,jdbcType=VARCHAR}, #{channelId,jdbcType=VARCHAR},
+      #{strategyBeanId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+    insert into payment_channel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="channelName != null" >
+        channel_name,
+      </if>
+      <if test="channelId != null" >
+        channel_id,
+      </if>
+      <if test="strategyBeanId != null" >
+        strategy_bean_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="channelName != null" >
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null" >
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="strategyBeanId != null" >
+        #{strategyBeanId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+    update payment_channel
+    <set >
+      <if test="channelName != null" >
+        channel_name = #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null" >
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="strategyBeanId != null" >
+        strategy_bean_id = #{strategyBeanId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+    update payment_channel
+    set channel_name = #{channelName,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=VARCHAR},
+      strategy_bean_id = #{strategyBeanId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="MysqlDialectSuffix" >
+    <if test="page != null" >
+      <![CDATA[  limit #{page.begin} , #{page.end} ]]>
+    </if>
+  </sql>
+</mapper>

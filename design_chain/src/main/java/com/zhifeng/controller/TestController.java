@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @ClassName TestController
- * @Authoe ganzhifeng
- * @Date 2019/7/27 0027
+ * 仅用来测试项目启动
+ * @className TestController
+ * @author ganzhifeng
+ * @date 2019/7/27 0027
  */
 @RestController
 public class TestController {
