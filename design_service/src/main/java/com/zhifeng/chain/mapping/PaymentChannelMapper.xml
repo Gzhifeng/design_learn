@@ -84,4 +84,11 @@
       <![CDATA[  limit #{page.begin} , #{page.end} ]]>
     </if>
   </sql>
+
+  <select id="selectByChannelId" resultType="java.lang.String">
+    SELECT
+      strategy_bean_id
+    FROM payment_channel
+    WHERE channel_id = #{payCode}
+  </select>
 </mapper>
