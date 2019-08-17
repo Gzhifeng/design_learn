@@ -1,6 +1,6 @@
-package com.zhifeng.chain.mapper;
+package com.zhifeng.strategy.mapper;
 
-import com.zhifeng.chain.model.PaymentChannel;
+import com.zhifeng.strategy.model.PaymentChannel;
 
 /**
  * 执行策略

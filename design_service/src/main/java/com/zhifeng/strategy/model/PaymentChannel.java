@@ -1,7 +1,11 @@
-package com.zhifeng.chain.model;
+package com.zhifeng.strategy.model;
 
 import java.io.Serializable;
 
+/**
+ * 策略模式实体
+ * @author ganzhifeng
+ */
 public class PaymentChannel implements Serializable {
     private Long id;
 

@@ -1,4 +1,4 @@
-package com.zhifeng.chain;
+package com.zhifeng.strategy;
 
 import org.springframework.stereotype.Component;
 

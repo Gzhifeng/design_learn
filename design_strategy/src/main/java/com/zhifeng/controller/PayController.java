@@ -1,6 +1,6 @@
 package com.zhifeng.controller;
 
-import com.zhifeng.chain.PayContextStrategy;
+import com.zhifeng.strategy.PayContextStrategy;
 import com.zhifeng.common.constants.CodeConstants;
 import com.zhifeng.common.result.Result;
 import org.slf4j.Logger;

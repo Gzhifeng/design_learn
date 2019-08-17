@@ -1,6 +1,6 @@
-package com.zhifeng.chain;
+package com.zhifeng.strategy;
 
-import com.zhifeng.chain.mapper.PaymentChannelMapper;
+import com.zhifeng.strategy.mapper.PaymentChannelMapper;
 import com.zhifeng.common.util.SpringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -15,7 +15,7 @@ public class TestController {
 
     @GetMapping("/test")
     public String testRun() {
-        return "chain running...";
+        return "running...";
     }
 
 }

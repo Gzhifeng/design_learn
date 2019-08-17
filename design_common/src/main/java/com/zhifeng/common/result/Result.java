@@ -7,22 +7,30 @@ import java.io.Serializable;
 
 /**
  * 服务器端返回的通用对象（所有控制器都返回此对象）
+ * @author ganzhifeng
  * @ClassName Result
- * @Authoe ganzhifeng
  * @Date 2019/7/27 0027
  */
 public class Result implements Serializable {
 
-    //请求状态码
+    /**
+     * 请求状态码
+     */
     private Integer code;
 
-    //请求状态描述
+    /**
+     * 请求状态描述
+     */
     private String msg;
 
-    //请求状态时间
+    /**
+     * 请求状态时间
+     */
     private Long serverTimestamp;
 
-    //请求获取的数据
+    /**
+     * 请求获取的数据
+     */
     private Object data;
 
     public Result() {

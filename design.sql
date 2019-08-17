@@ -16,6 +16,26 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`design` /*!40100 DEFAULT CHARACTER SET 
 
 USE `design`;
 
+/*Table structure for table `gateway_handler` */
+
+DROP TABLE IF EXISTS `gateway_handler`;
+
+CREATE TABLE `gateway_handler` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `handler_name` varchar(32) DEFAULT NULL COMMENT 'handler名称',
+  `handler_id` varchar(32) DEFAULT NULL COMMENT 'handler主键id',
+  `prev_handler_id` varchar(32) DEFAULT NULL,
+  `next_handler_id` varchar(32) DEFAULT NULL COMMENT '下一个handler',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='权限表';
+
+/*Data for the table `gateway_handler` */
+
+insert  into `gateway_handler`(`id`,`handler_name`,`handler_id`,`prev_handler_id`,`next_handler_id`) values 
+(1,'Api接口限流','currentLimitHandler',NULL,'blacklistHandler'),
+(2,'黑名单拦截','blacklistHandler','currentLimitHandler','conversationHandler'),
+(3,'会话验证','conversationHandler','blacklistHandler',NULL);
+
 /*Table structure for table `payment_channel` */
 
 DROP TABLE IF EXISTS `payment_channel`;

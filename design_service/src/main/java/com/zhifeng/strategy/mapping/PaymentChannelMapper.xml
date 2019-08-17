@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhifeng.chain.mapper.PaymentChannelMapper" >
-  <resultMap id="BaseResultMap" type="com.zhifeng.chain.model.PaymentChannel" >
+<mapper namespace="com.zhifeng.strategy.mapper.PaymentChannelMapper" >
+  <resultMap id="BaseResultMap" type="com.zhifeng.strategy.model.PaymentChannel" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="channel_name" property="channelName" jdbcType="VARCHAR" />
     <result column="channel_id" property="channelId" jdbcType="VARCHAR" />
@@ -20,13 +20,13 @@
     delete from payment_channel
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+  <insert id="insert" parameterType="com.zhifeng.strategy.model.PaymentChannel" >
     insert into payment_channel (id, channel_name, channel_id,
       strategy_bean_id)
     values (#{id,jdbcType=BIGINT}, #{channelName,jdbcType=VARCHAR}, #{channelId,jdbcType=VARCHAR},
       #{strategyBeanId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+  <insert id="insertSelective" parameterType="com.zhifeng.strategy.model.PaymentChannel" >
     insert into payment_channel
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhifeng.strategy.model.PaymentChannel" >
     update payment_channel
     <set >
       <if test="channelName != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhifeng.chain.model.PaymentChannel" >
+  <update id="updateByPrimaryKey" parameterType="com.zhifeng.strategy.model.PaymentChannel" >
     update payment_channel
     set channel_name = #{channelName,jdbcType=VARCHAR},
       channel_id = #{channelId,jdbcType=VARCHAR},

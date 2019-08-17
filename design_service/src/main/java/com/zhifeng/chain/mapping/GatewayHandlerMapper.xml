@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhifeng.chain.mapper.GatewayHandlerMapper" >
+  <resultMap id="BaseResultMap" type="com.zhifeng.chain.model.GatewayHandler" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="handler_name" property="handlerName" jdbcType="VARCHAR" />
+    <result column="handler_id" property="handlerId" jdbcType="VARCHAR" />
+    <result column="prev_handler_id" property="prevHandlerId" jdbcType="VARCHAR" />
+    <result column="next_handler_id" property="nextHandlerId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, handler_name, handler_id, prev_handler_id, next_handler_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gateway_handler
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gateway_handler
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhifeng.chain.model.GatewayHandler" >
+    insert into gateway_handler (id, handler_name, handler_id, 
+      prev_handler_id, next_handler_id)
+    values (#{id,jdbcType=INTEGER}, #{handlerName,jdbcType=VARCHAR}, #{handlerId,jdbcType=VARCHAR}, 
+      #{prevHandlerId,jdbcType=VARCHAR}, #{nextHandlerId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhifeng.chain.model.GatewayHandler" >
+    insert into gateway_handler
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="handlerName != null" >
+        handler_name,
+      </if>
+      <if test="handlerId != null" >
+        handler_id,
+      </if>
+      <if test="prevHandlerId != null" >
+        prev_handler_id,
+      </if>
+      <if test="nextHandlerId != null" >
+        next_handler_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="handlerName != null" >
+        #{handlerName,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerId != null" >
+        #{handlerId,jdbcType=VARCHAR},
+      </if>
+      <if test="prevHandlerId != null" >
+        #{prevHandlerId,jdbcType=VARCHAR},
+      </if>
+      <if test="nextHandlerId != null" >
+        #{nextHandlerId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhifeng.chain.model.GatewayHandler" >
+    update gateway_handler
+    <set >
+      <if test="handlerName != null" >
+        handler_name = #{handlerName,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerId != null" >
+        handler_id = #{handlerId,jdbcType=VARCHAR},
+      </if>
+      <if test="prevHandlerId != null" >
+        prev_handler_id = #{prevHandlerId,jdbcType=VARCHAR},
+      </if>
+      <if test="nextHandlerId != null" >
+        next_handler_id = #{nextHandlerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhifeng.chain.model.GatewayHandler" >
+    update gateway_handler
+    set handler_name = #{handlerName,jdbcType=VARCHAR},
+      handler_id = #{handlerId,jdbcType=VARCHAR},
+      prev_handler_id = #{prevHandlerId,jdbcType=VARCHAR},
+      next_handler_id = #{nextHandlerId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="MysqlDialectSuffix" >
+    <if test="page != null" >
+      <![CDATA[  limit #{page.begin} , #{page.end} ]]>
+    </if>
+  </sql>
+
+  <select id="selectFirstGateway" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List"/>
+    FROM
+      gateway_handler
+    WHERE prev_handler_id IS NULL
+  </select>
+
+  <select id="selectByHandlerId" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List"/>
+    FROM
+      gateway_handler
+    WHERE handler_id=#{handlerId}
+  </select>
+</mapper>
