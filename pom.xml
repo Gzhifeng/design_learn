@@ -14,6 +14,8 @@
 		<module>design_strategy</module>
 		<module>design_profiles</module>
 		<module>design_chain</module>
+		<module>design_factory</module>
+		<module>design_template</module>
 	</modules>
 
 	<parent>
