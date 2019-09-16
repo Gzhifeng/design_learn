@@ -16,6 +16,7 @@
 		<module>design_chain</module>
 		<module>design_factory</module>
 		<module>design_template</module>
+		<module>design_decorator</module>
 	</modules>
 
 	<parent>
