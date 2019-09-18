@@ -1,8 +1,8 @@
 package com.zhifeng.controller;
 
 import com.zhifeng.common.result.Result;
+import com.zhifeng.factory.TemplateFactory;
 import com.zhifeng.template.AbstractPayCallbackTemplate;
-import com.zhifeng.template.TemplateFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

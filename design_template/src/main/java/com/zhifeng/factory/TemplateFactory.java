@@ -1,6 +1,7 @@
-package com.zhifeng.template;
+package com.zhifeng.factory;
 
 import com.zhifeng.common.util.SpringUtils;
+import com.zhifeng.template.AbstractPayCallbackTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
