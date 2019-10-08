@@ -19,7 +19,7 @@ public class ProxyController {
 
     public static void main(String[] args) {
 
-//        //基于接口实现
+        //基于接口实现
         OrderServiceImpl orderService = new OrderServiceImpl();
         OrderServiceProxy2Implements orderServiceProxy = new OrderServiceProxy2Implements();
         orderServiceProxy.setProxyOrderService(orderService);
@@ -27,6 +27,7 @@ public class ProxyController {
 
         logger.info("================分割线===============");
 
+        //基于继承
         OrderServiceProxy2Extends orderServiceProxy2Extends = new OrderServiceProxy2Extends();
         orderServiceProxy2Extends.order();
     }
