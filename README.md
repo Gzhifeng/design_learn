@@ -29,6 +29,7 @@
 + factory      工厂模式
 + template     模板方法
 + decorate     装饰模式     
++ proxy        代理模式
 
 推荐阅读
 -
