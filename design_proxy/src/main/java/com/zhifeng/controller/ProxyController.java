@@ -1,5 +1,7 @@
 package com.zhifeng.controller;
 
+import com.zhifeng.proxy.service.JdkInvocationHandler;
+import com.zhifeng.proxy.service.OrderService;
 import com.zhifeng.proxy.service.OrderServiceProxy2Extends;
 import com.zhifeng.proxy.service.OrderServiceProxy2Implements;
 import com.zhifeng.proxy.service.impl.OrderServiceImpl;
@@ -17,8 +19,12 @@ public class ProxyController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProxyController.class);
 
+
     public static void main(String[] args) {
 
+        /**
+         * 静态代理
+         */
         //基于接口实现
         OrderServiceImpl orderService = new OrderServiceImpl();
         OrderServiceProxy2Implements orderServiceProxy = new OrderServiceProxy2Implements();
@@ -30,6 +36,13 @@ public class ProxyController {
         //基于继承
         OrderServiceProxy2Extends orderServiceProxy2Extends = new OrderServiceProxy2Extends();
         orderServiceProxy2Extends.order();
+
+        /**
+         * 动态代理
+         */
+        JdkInvocationHandler jdkInvocationHandler = new JdkInvocationHandler(orderService);
+        OrderService proxy = jdkInvocationHandler.getProxy();
+        proxy.order();
     }
 
 }
