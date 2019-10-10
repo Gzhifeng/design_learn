@@ -1,10 +1,8 @@
 package com.zhifeng.controller;
 
-import com.zhifeng.proxy.service.JdkInvocationHandler;
-import com.zhifeng.proxy.service.OrderService;
-import com.zhifeng.proxy.service.OrderServiceProxy2Extends;
-import com.zhifeng.proxy.service.OrderServiceProxy2Implements;
+import com.zhifeng.proxy.service.*;
 import com.zhifeng.proxy.service.impl.OrderServiceImpl;
+import net.sf.cglib.proxy.Enhancer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,8 +22,8 @@ public class ProxyController {
 
         /**
          * 静态代理
+         * 基于接口实现
          */
-        //基于接口实现
         OrderServiceImpl orderService = new OrderServiceImpl();
         OrderServiceProxy2Implements orderServiceProxy = new OrderServiceProxy2Implements();
         orderServiceProxy.setProxyOrderService(orderService);
@@ -39,10 +37,23 @@ public class ProxyController {
 
         /**
          * 动态代理
+         * jdk动态代理
          */
         JdkInvocationHandler jdkInvocationHandler = new JdkInvocationHandler(orderService);
         OrderService proxy = jdkInvocationHandler.getProxy();
         proxy.order();
+
+        //cglib动态代理
+        CglibMethodInterceptor cglibMethodInterceptor = new CglibMethodInterceptor();
+        Enhancer enhancer = new Enhancer();
+
+        //设置代理类的父类
+        enhancer.setSuperclass(OrderServiceImpl.class);
+        //设置回调对象
+        enhancer.setCallback(cglibMethodInterceptor);
+        //创建代理对象
+        OrderServiceImpl o = (OrderServiceImpl) enhancer.create();
+        o.order();
     }
 
 }
