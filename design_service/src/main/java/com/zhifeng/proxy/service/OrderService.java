@@ -7,5 +7,5 @@ package com.zhifeng.proxy.service;
  */
 public interface OrderService {
 
-    void order();
+    void order() throws Throwable;
 }

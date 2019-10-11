@@ -16,7 +16,7 @@ public class OrderServiceProxy2Extends extends OrderServiceImpl {
     private static final Logger logger = LoggerFactory.getLogger(OrderServiceProxy2Extends.class);
 
     @Override
-    public void order() {
+    public void order() throws Throwable {
 
         logger.info("日志收集开始。。。");
         super.order();

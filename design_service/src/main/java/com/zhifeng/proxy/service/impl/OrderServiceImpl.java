@@ -15,7 +15,7 @@ public class OrderServiceImpl implements OrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Override
-    public void order() {
+    public void order() throws Throwable {
         logger.info("用户下单操作。。。");
     }
 }

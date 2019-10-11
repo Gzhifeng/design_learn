@@ -18,7 +18,7 @@ public class ProxyController {
     private static final Logger logger = LoggerFactory.getLogger(ProxyController.class);
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
 
         /**
          * 静态代理
