@@ -18,6 +18,7 @@
 		<module>design_template</module>
 		<module>design_decorator</module>
 		<module>design_proxy</module>
+		<module>design_observer</module>
 	</modules>
 	<dependencies>
 		<dependency>

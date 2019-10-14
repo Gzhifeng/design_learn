@@ -30,6 +30,7 @@
 + template     模板方法
 + decorate     装饰模式     
 + proxy        代理模式
++ observer     观察者模式
 
 推荐阅读
 -
