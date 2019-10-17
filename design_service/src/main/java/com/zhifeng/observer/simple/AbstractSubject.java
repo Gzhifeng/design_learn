@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * 抽象主题
+ * TODO 观察者集合放在抽象主题里并不适用，这里仅为方便测试观察者模式
  *
  * @author ganzhifeng
  * @className AbstractSubject
