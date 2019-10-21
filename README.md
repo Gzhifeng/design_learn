@@ -31,6 +31,7 @@
 + decorate     装饰模式     
 + proxy        代理模式
 + observer     观察者模式
++ facadeAndState 外观、状态模式
 
 推荐阅读
 -
